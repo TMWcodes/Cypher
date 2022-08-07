@@ -15,13 +15,19 @@ class Encrypt
 
         # loop over message string, find index positions
 
-        message.downcase.chars.each do |char|
+        message.chars.each do |char|
+        if char.downcase == char
         
-        index_old = @letters.find_index(char)
-        index_new = (index_old + shift) % @letters.count
-        @letters[index_new]
-        @encrypted_string  += @letters[index_new]
+            index_old = @letters.find_index(char)
+            index_new = (index_old + shift) % @letters.count
+            @encrypted_string  += @letters[index_new]
         
+        else
+            index_old = @letters.find_index(char.downcase)
+            index_new = (index_old + shift) % @letters.count
+            @encrypted_string  += @letters[index_new].upcase
+        end
+
         end
         @encrypted_string
     end
