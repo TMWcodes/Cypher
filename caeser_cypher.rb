@@ -9,12 +9,6 @@ class Encrypt
    
     def caeser(message, shift) 
 
-    #   string into array of letters 
-        # @message.split("") OR @message.chars
-        #->["c", "a", "t"]
-
-        # loop over message string, find index positions
-
         message.chars.each do |char|
         if char.downcase == char
         
